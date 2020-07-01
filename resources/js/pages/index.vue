@@ -1,6 +1,6 @@
 <template>
 	<div>
-		<h1>dawdaw</h1>
+		<h1>Skill test</h1>
 	</div>
 </template>
 
@@ -10,6 +10,14 @@
 		data() {
 			return {
 				
+			}
+		},
+		created() {
+			this.getUser()
+		},
+		methods: {
+			async getUser() {
+				return await axios.get('/api/user')
 			}
 		}
 	}

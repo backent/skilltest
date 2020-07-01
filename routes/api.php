@@ -14,10 +14,8 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-/*Route::middleware('auth:api')->get('/user', function (Request $request) {
-    return $request->user();
-});*/
 
-Route::get('guest', function() {
-	return 'aaf';
-});	
+Route::post('register', 'Auth\AuthController@register');
+Route::post('login', 'Auth\AuthController@login');
+
+Route::get('checkauth', 'Auth\AuthController@get_auth');

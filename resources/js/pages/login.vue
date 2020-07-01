@@ -7,6 +7,11 @@
       lazy-validation
     >
 
+      <v-card-title>
+        Login
+      </v-card-title>
+      
+
       <v-text-field
         v-model="email"
         :rules="emailRules"
@@ -34,6 +39,13 @@
         @click="login"
       >
         Login
+      </v-btn>
+      <v-btn
+        color="warning"
+        class="mr-4"
+        to="/register"
+      >
+        Register
       </v-btn>
 
      
@@ -70,7 +82,7 @@
       ],
       password: '',
       passwordRules: [
-        v => !!v || 'Password is required',
+        v => !!v || 'Password is required'
       ],
       showPassword: false,
       notification: {
@@ -90,24 +102,19 @@
             this.setToken()
           })
           .catch( err => {
-            console.log(err.response)
-            if (err.response.status === 422) {
-              this.showNotification("Error Login: Wrong Password", "error")
-            } else if(err.response.status === 404) {
-              this.showNotification("Error Login: Email Not Found", "error")
-            }
-            console.log(err)
+              this.showNotification("Error Login: Wrong email or password", "red")
           })
         }
       },
       setToken () {
-        axios.get('/api/check').then( res=> {
+        axios.get('/api/checkauth').then( res=> {
           let token = res.data.response.records;
+          console.log(res);
           if (token != null && typeof token == 'string') {
             axios.defaults.headers.common['Authorization'] = `Bearer ${token}`;
             this.$router.push('/')
           } else {
-              this.showNotification("Error Login", "error")
+              this.showNotification("Error Login", "red")
           }
         });
         return;

@@ -27,16 +27,25 @@ Vue.component('example-component', require('./components/ExampleComponent.vue').
 Vue.component('cropper', Cropper);
 
 
+const main = require('./pages/main.vue').default;
 const index = require('./pages/index.vue').default;
 const login = require('./pages/login.vue').default;
+const register = require('./pages/register.vue').default;
 
 const routes = [
 	{	path: '/', 
-		component: index
+		component: main,
+		children: [
+			{ path: '/', component: index}
+		]
 	},
 	{  	path: '/login',
 		name: 'login',
 		component: login
+	},
+	{  	path: '/register',
+		name: 'register',
+		component: register
 	}
 ];
 
@@ -44,6 +53,25 @@ const  router = new VueRouter({
 	mode: 'history',
 	routes,
 });
+
+let token = null;
+router.beforeEach(async (to, from, next) => {
+	if (token == null) {
+		let result = await axios.get('/api/checkauth');
+		token = result.data.response.records;
+		if (token != null && typeof token == 'string') {
+			axios.defaults.headers.common['Authorization'] = `Bearer ${token}`;
+		}
+	}
+	if (to.name !== 'login' && token == null) {
+		next({name: 'login'});
+	} else {
+		next()
+	}
+
+	next();
+});
+
 
 /**
  * Next, we will create a fresh Vue application instance and attach it to
