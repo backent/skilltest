@@ -55,6 +55,8 @@
 				drawer: true,
 				nav: [
 					{'name': 'DashBoard', link: '/', icon: 'mdi-home'},
+					{'name': 'Soal 1', link: '/soal1', icon: 'mdi-briefcase'},
+					{'name': 'Soal 2', link: '/soal2', icon: 'mdi-briefcase'},
 				]
 			}
 		},

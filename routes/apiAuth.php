@@ -17,3 +17,5 @@ Route::get('user', function() {
 });	
 
 Route::post('logout', 'Auth\AuthController@logout');
+
+Route::get('/soal/{nomor}', 'Soal\SoalController@soal');

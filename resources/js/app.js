@@ -32,11 +32,16 @@ const index = require('./pages/index.vue').default;
 const login = require('./pages/login.vue').default;
 const register = require('./pages/register.vue').default;
 
+const soal1 = require('./pages/soal1.vue').default;
+const soal2 = require('./pages/soal2.vue').default;
+
 const routes = [
 	{	path: '/', 
 		component: main,
 		children: [
-			{ path: '/', component: index}
+			{ path: '/', component: index},
+			{ path: '/soal1', component: soal1},
+			{ path: '/soal2', component: soal2}
 		]
 	},
 	{  	path: '/login',
