@@ -1,0 +1,3 @@
+#!/bin/bash
+# Run project on container php7.4
+docker-compose exec app bash -c "$(printf ' %q' "$@")"
