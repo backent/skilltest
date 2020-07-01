@@ -18,6 +18,6 @@ use Illuminate\Support\Facades\Route;
     return $request->user();
 });*/
 
-Route::get('guest', function() {
-	return 'aaf';
+Route::get('user', function() {
+	return request()->user();
 });	
