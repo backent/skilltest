@@ -34,6 +34,7 @@ const register = require('./pages/register.vue').default;
 
 const soal1 = require('./pages/soal1.vue').default;
 const soal2 = require('./pages/soal2.vue').default;
+const soal5 = require('./pages/soal5.vue').default;
 
 const routes = [
 	{	path: '/', 
@@ -41,7 +42,8 @@ const routes = [
 		children: [
 			{ path: '/', component: index},
 			{ path: '/soal1', component: soal1},
-			{ path: '/soal2', component: soal2}
+			{ path: '/soal2', component: soal2},
+			{ path: '/soal5', component: soal5}
 		]
 	},
 	{  	path: '/login',

@@ -57,6 +57,7 @@
 					{'name': 'DashBoard', link: '/', icon: 'mdi-home'},
 					{'name': 'Soal 1', link: '/soal1', icon: 'mdi-briefcase'},
 					{'name': 'Soal 2', link: '/soal2', icon: 'mdi-briefcase'},
+					{'name': 'Soal 5', link: '/soal5', icon: 'mdi-briefcase'},
 				]
 			}
 		},

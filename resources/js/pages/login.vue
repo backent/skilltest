@@ -109,7 +109,6 @@
       setToken () {
         axios.get('/api/checkauth').then( res=> {
           let token = res.data.response.records;
-          console.log(res);
           if (token != null && typeof token == 'string') {
             axios.defaults.headers.common['Authorization'] = `Bearer ${token}`;
             this.$router.push('/')
