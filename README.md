@@ -11,15 +11,35 @@ Make .env from .env.example
 cp .env.example .env
 ```
 
-Generate app key
-```bash
-./php artisan key:generate
-```
 
 Build containers using docker-compose
 ```bash
 docker-compose up -d
 ```
+Generate app key
+```bash
+./app_bash php artisan key:generate
+```
+
+Migrate Database
+```bash
+./app_bash php artisan migrate
+```
+
+Install Passport
+```bash
+./app_bash php artisan passport:install
+```
+Storage link
+```bash
+./app_bash php artisan storage:link
+```
+
+Install package yarn
+```bash
+./app_bash yarn
+```
+
 
 Set Project permission
 ```bash
@@ -39,14 +59,6 @@ Example
 ./composer install
 ```
 
-### Run php
-```bash
-./php {argument}
-```
-Example
-```bash
-./php -v
-```
 ## Database
 This project using mysql database.
 You can config the database at docker-compose.yml
